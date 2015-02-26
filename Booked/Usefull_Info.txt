@@ -1,0 +1,20 @@
+Pete Jones
+
+Thing of Note
+
+Stting Up Debug
+===============
+
+Using XDEBUG.
+Add the [xdebug] section into the php.ini
+Add the extension_dir folder in the php.ini
+i.e extension_dir =  "/Applications/XAMPP/xamppfiles/lib/php/extensions/no-debug-non-zts-20131226"
+
+
+Database setup
+==============
+
+Make sure the user has enough privileges - when I first set up the user it was against the specific database and didn't work as expected...
+
+Email Setup
+===========
