@@ -15,7 +15,10 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once(ROOT_DIR . 'lib/Email/namespace.php');
-require_once(ROOT_DIR . 'lib/external/phpmailer/class.phpmailer.php');
+//require_once(ROOT_DIR . 'lib/external/phpmailer/class.phpmailer.php');
+
+
+require_once(ROOT_DIR . '/lib/external/phpmailer/PHPMailerAutoload.php');
 
 class EmailService implements IEmailService
 {

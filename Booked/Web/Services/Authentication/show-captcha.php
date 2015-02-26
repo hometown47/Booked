@@ -1,4 +1,10 @@
 <?php
+
+// Pete Jones 26th February
+// Add this as discussed at http://sourceforge.net/p/phpscheduleit/bugs/121
+ob_start();
+
+
 /**
 Copyright 2011-2014 Nick Korbel
 
