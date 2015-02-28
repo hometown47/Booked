@@ -18,3 +18,7 @@ Make sure the user has enough privileges - when I first set up the user it was a
 
 Email Setup
 ===========
+
+Admin Confing Online
+Need CHMOD for config.php
+
