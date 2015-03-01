@@ -25,4 +25,7 @@ require_once('config/config.php');
 
 header( "refresh:0;url=Web?{$_SERVER['QUERY_STRING']}" );
 
+
+// This is a comment from the study mac
+
 ?>
