@@ -22,3 +22,15 @@ Email Setup
 Admin Confing Online
 Need CHMOD for config.php
 
+
+table membership_id
+id = AUTO_INCREMENT and sys_insert_tstmp defaults to current timestamp;
+
+
+mysql_query("INSERT INTO membership_id VALUES (NULL, NULL)", $conn_id);
+
+This will return the value that was generated
+$req = mysql_insert_id($conn_id)
+
+
+
