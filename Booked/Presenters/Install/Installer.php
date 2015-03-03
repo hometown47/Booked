@@ -37,12 +37,17 @@ class Installer
     }
 
     /**
+     * Pete Jones 3rd March 2015 - Add new parameter should_create_user_defined_tables (bool)
+     * to determine if the new bespoke sql should be run that will create user-defined
+     * database objects (table etc)
+     * 
      * @param $should_create_db bool
      * @param $should_create_user bool
      * @param $should_create_sample_data bool
+     * @param $should_create_user_def_objs bool
      * @return array|InstallationResult[]
      */
-    public function InstallFresh($should_create_db, $should_create_user, $should_create_sample_data)
+    public function InstallFresh($should_create_db, $should_create_user, $should_create_sample_data, $should_create_user_def_objs)
     {
         $results = array();
         $config = Configuration::Instance();
@@ -60,7 +65,19 @@ class Installer
         $create_user->Replace('schedule_user', $database_user);
         $create_user->Replace('localhost', $hostname);
         $create_user->Replace('password', $database_password);
-
+		
+        /**
+         * Pete Jones 3rd March 2015
+         * Set up the MySqlScript object that deals with the user defined tables script
+         * (actually it may not be tables
+         */
+        $create_user_def = new MySqlScript(ROOT_DIR . 'database_schema/create-user-def-stuff.sql');
+        $create_user_def->Replace('phpscheduleit2', $database_name);
+        $create_user_def->Replace('schedule_user', $database_user);
+        $create_user_def->Replace('localhost', $hostname);
+        $create_user_def->Replace('password', $database_password);
+        
+             
         $populate_sample_data = new MySqlScript(ROOT_DIR . 'database_schema/sample-data-utf8.sql');
         $populate_sample_data->Replace('phpscheduleit2', $database_name);
 
@@ -79,8 +96,20 @@ class Installer
             $results[] = $this->ExecuteScript($hostname, $database_name, $this->user, $this->password, $create_user);
         }
 
+   /**
+         * Pete Jones 3rd March 2015
+         * If the bool is set then run the sql script to create the user defined objects (tables etc)
+         */
+        if ($should_create_user_def_objs)
+        {
+        	$results[] = $this->ExecuteScript($hostname, $database_name, $this->user, $this->password, $create_user_def);
+        }
+        
         $results[] = $this->ExecuteScript($hostname, $database_name, $this->user, $this->password, $populate_data);
-
+        
+        
+        
+        
         $upgradeResults = $this->Upgrade();
 
 		/**

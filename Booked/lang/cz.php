@@ -517,6 +517,11 @@ class cz extends en_us
 		$strings['InstallOptionsWarning'] = 'The following options will probably not work in a hosted environment . If you are installing in a hosted environment, use the MySQL wizard tools to complete these steps . ';
 		$strings['CreateDatabase'] = 'Create the database';
 		$strings['CreateDatabaseUser'] = 'Create the database user';
+		/**
+		 * Pete Jones 3rd March 2015 Added the new translation for create user defined tables
+		 * 
+		 */
+		$strings['CreateUserDefinedTables'] = 'Create the user defined DB tables';
 		$strings['PopulateExampleData'] = 'Import sample data . Creates admin account: admin / password and user account: user / password';
 		$strings['DataWipeWarning'] = 'Warning: This will delete any existing data';
 		$strings['RunInstallation'] = 'Run Installation';

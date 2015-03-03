@@ -119,12 +119,16 @@ class InstallPresenter
 	{
 		return $this->securityGuard->ValidatePassword($installPassword);
 	}
-
+	/**
+	 * Pete Jones 3rd March 2015 - This function is in the middle tier that ties up the 
+	 * page (/Pages/Install/InstallPage.php) to the back-end php page (Installer.php) that
+	 * does the donkey-work.
+	 */
 	private function RunInstall()
 	{
 		$install = new Installer($this->page->GetInstallUser(), $this->page->GetInstallUserPassword());
-
-		$results = $install->InstallFresh($this->page->GetShouldCreateDatabase(), $this->page->GetShouldCreateUser(), $this->page->GetShouldCreateSampleData());
+		// Pete Jones 3rd March 2015 retrieve the value (of checkbox) that indicates if we should create the user defined tables
+		$results = $install->InstallFresh($this->page->GetShouldCreateDatabase(), $this->page->GetShouldCreateUser(), $this->page->GetShouldCreateSampleData(),$this->page->GetShouldCreateUserDefObjs() );
         $install->ClearCachedTemplates();
 
 		$this->page->SetInstallResults($results);

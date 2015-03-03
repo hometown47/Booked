@@ -70,6 +70,11 @@ along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
 					<li>3)<i>{translate key=InstallOptionsWarning}</i></li>
 					<li><input type="checkbox" name="create_database" /> {translate key=CreateDatabase} ({$dbname}) <span style="color:Red;">{translate key=DataWipeWarning}</span></li>
 					<li><input type="checkbox" name="create_user" /> {translate key=CreateDatabaseUser} ({$dbuser})</li>
+					{*
+					Pete Jones 3rd March 2015 Adde new check box to ask if the user defined tables
+					are to be created
+					*}
+					<li><input type="checkbox" name="create_user_defined_tables" /> {translate key=CreateUserDefinedTables} ({$dbuser})</li>
 					<li><input type="checkbox" name="create_sample_data" /> {translate key=PopulateExampleData}</li>
 					<li>
 						<br/><button type="submit" name="run_install" class="button" value="submit">{translate key=RunInstallation} {html_image src="arrow_large_right.png"}<br/>

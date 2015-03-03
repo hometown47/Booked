@@ -26,6 +26,12 @@ interface IInstallPage
 {
 
 	/**
+	 *  Pete Jones 3rd March 2015 New function for getting the value if the user defined tables 
+	 *  should be created
+	 */
+	public function GetShouldCreateUserDefObjs();
+	
+	/**
 	 * @abstract
 	 * @param bool $isMissing
 	 */
@@ -249,6 +255,16 @@ class InstallPage extends Page implements IInstallPage
 	public function GetShouldCreateDatabase()
 	{
 		$x = $this->GetForm('create_database');
+		return isset($x) && $x == true;
+	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see IInstallPage::GetShouldCreateUserDefObjs()
+	 */
+	public function GetShouldCreateUserDefObjs()
+	{
+		$x = $this->GetForm('create_user_defined_tables');
 		return isset($x) && $x == true;
 	}
 
