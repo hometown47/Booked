@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 
-$conf['settings']['app.title'] = 'Booked Scheduler';
+$conf['settings']['app.title'] = 'Booked Scheduler Title';
 $conf['settings']['default.timezone'] = 'Europe/London';
 $conf['settings']['allow.self.registration'] = 'true';
 $conf['settings']['admin.email'] = 'hometown47@btinternet.com';
