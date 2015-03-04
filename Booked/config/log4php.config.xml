@@ -3,7 +3,7 @@
 		<layout class="LoggerLayoutPattern">
 			<param name="conversionPattern" value="%d [%t] %p %logger{0} - %m%n" />
 		</layout>
-		<param name="file" value="/Users/36066pe/bookedscheduler/log_%s.log" />
+		<param name="file" value="/Users/Pete/bookedscheduler/log_%s.log" />
 		<param name="append" value="true" />
 	</appender>
 	<appender name="sqlAppender" class="LoggerAppenderDailyFile">
